@@ -23,6 +23,7 @@ func AsyncService() chan string {
 }
 func TestSelect(t *testing.T) {
 	select {
+	//多路复用
 	case ret := <-AsyncService():
 		t.Log(ret)
 	case <-time.After(time.Millisecond * 700):
