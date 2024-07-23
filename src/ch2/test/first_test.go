@@ -5,5 +5,6 @@ import "testing"
 
 // 方法名字以大写Test开头
 func TestFirstTry(t *testing.T) {
+	//test
 	t.Log("My first try!")
 }
