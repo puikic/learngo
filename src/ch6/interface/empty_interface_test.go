@@ -16,6 +16,7 @@ func DoSomething(p interface{}) {
 	//	return
 	//}
 	//p.(type) 并不是一个单独的表达式或语法结构，而是用于 switch 语句中的类型选择器（Type Switch）
+
 	switch t := p.(type) {
 	case int:
 		fmt.Println("int", t)
