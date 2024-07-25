@@ -3,7 +3,7 @@ package remote_pkg
 import (
 	"testing"
 
-	cm "github.com/easierway/concurrent_map"
+	cm "github.com/easierway/concurrent_map" //远程包 从网络上下到{GOPATH}/pkg/mod
 )
 
 func TestRemotePkg(t *testing.T) {

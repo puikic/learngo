@@ -1,4 +1,4 @@
-package cancel_by_clsoe
+package close_context
 
 import (
 	"context"
