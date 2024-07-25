@@ -16,6 +16,8 @@ func (p *GoProgrammer) WriteHelloWorld() string {
 func TestInterface(t *testing.T) {
 	var p Programmer
 	p = new(GoProgrammer)
-	t.Logf("%T\n", p)
+	//断言写法
+	p.(*GoProgrammer).Age = 10
+	t.Logf("%T\n %d\n", p, p.(*GoProgrammer).Age)
 	t.Log(p.WriteHelloWorld())
 }
