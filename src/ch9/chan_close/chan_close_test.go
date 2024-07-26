@@ -1,9 +1,11 @@
 package chan_close
 
 import (
+	"context"
 	"fmt"
 	"sync"
 	"testing"
+	"time"
 )
 
 func dataProducer(ch chan int, wg *sync.WaitGroup) {
@@ -40,4 +42,13 @@ func TestChanClose(t *testing.T) {
 	//wg.Add(1)
 	//dataConsumer(ch, &wg)
 	wg.Wait()
+}
+func TestChanCloseDemo1(t *testing.T) {
+	ctx, cancel := context.WithTimeout(context.Background(), time.Millisecond*100)
+	defer cancel()
+	select {
+	case <-ctx.Done():
+		err := ctx.Err()
+		fmt.Println("err:", err)
+	}
 }
