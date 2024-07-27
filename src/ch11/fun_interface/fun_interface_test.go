@@ -45,9 +45,3 @@ func TestDemo1(t *testing.T) {
 	se := SearchEngine{Recallers: []Recaller{tmp}}
 	fmt.Printf("%v", se)
 }
-func TestDemo2(t *testing.T) {
-	x := make([]byte, 20)
-	fmt.Println(x)
-	x = append(x, 2)
-	fmt.Println(len(x), cap(x), x)
-}
