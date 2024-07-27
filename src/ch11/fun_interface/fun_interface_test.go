@@ -43,5 +43,6 @@ func TestDemo1(t *testing.T) {
 	tmp := RecallType(r)
 	fmt.Println(tmp.Recall())
 	se := SearchEngine{Recallers: []Recaller{tmp}}
-	fmt.Printf("%v", se)
+	fmt.Printf("%v\n", se)
+	t.Log("test")
 }
