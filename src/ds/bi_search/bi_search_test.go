@@ -1,6 +1,8 @@
 package bi_search
 
-import "testing"
+import (
+	"testing"
+)
 
 func BinarySearch[T int | int8 | int32 | int64 | float32 | float64 | string](arr []T, target T) int {
 	begin := 0
