@@ -1,6 +1,18 @@
-package _switch
+package switch_test
 
 import "testing"
+
+func Switch1(x int) {
+	switch {	
+	case x >= 18:
+		println("成年人")
+	case x > 12:
+		println("青年人")
+	default:
+		println("未知")
+	}
+	println("测试！")
+}
 
 func TestSwitch(t *testing.T) {
 	for i := 0; i < 10; i++ {
@@ -11,4 +23,8 @@ func TestSwitch(t *testing.T) {
 			t.Log("odd")
 		}
 	}
+}
+
+func TestSwitch1(t *testing.T) {
+	Switch1(11)
 }
