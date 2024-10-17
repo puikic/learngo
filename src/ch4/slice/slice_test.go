@@ -2,6 +2,7 @@ package slice
 
 import "testing"
 
+// 把slice理解为一个结构体：1.一个指针，指向低层数组 2.len, cap int
 func TestSlice(t *testing.T) {
 	//切片共享存储结构
 	s := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
@@ -19,4 +20,66 @@ func TestSlice(t *testing.T) {
 	t.Log(s, s1, s2, s3)
 	//	s[10] = 20
 	//error: index out of range [10] with length 10
+}
+
+func reverse1(i int, nums []int) {
+	if i == 5 {
+		return
+	}
+	nums = append(nums, i)
+	reverse1(i+1, nums)
+}
+func reverse2(i int, nums *[]int) {
+	if i == 5 {
+		return
+	}
+	*nums = append(*nums, i)
+	reverse2(i+1, nums)
+}
+func sliceAdd(nums []int) {
+	// 值传递
+	for i := 0; i < 5; i++ {
+		nums = append(nums, i)
+	}
+}
+func sliceAddP(nums *[]int) {
+	for i := 0; i < 5; i++ {
+		*nums = append(*nums, i)
+	}
+}
+
+func change(nums []int) {
+	nums[0] = 10
+}
+func TestDemo1(t *testing.T) {
+	nums := make([]int, 0, 20)
+	reverse1(0, nums)
+	t.Log(nums)
+}
+func TestDemo2(t *testing.T) {
+	nums := make([]int, 0, 20)
+	reverse2(0, &nums)
+	t.Log(nums)
+}
+func TestDemo3(t *testing.T) {
+	nums := make([]int, 3, 20)
+	sliceAdd(nums)
+	t.Log(nums)
+}
+func TestDemo4(t *testing.T) {
+	nums := make([]int, 3, 20)
+	sliceAddP(&nums)
+	t.Log(nums)
+}
+func TestDemo5(t *testing.T) {
+	nums := make([]int, 3, 20)
+	change(nums)
+	t.Log(nums)
+}
+
+func TestAppend(t *testing.T) {
+	nums := []int{1, 2, 3}
+	temp := append(nums, 5)
+	t.Log(nums)
+	t.Log(temp)
 }
