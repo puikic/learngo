@@ -2,6 +2,21 @@ package slice
 
 import "testing"
 
+func ChangeSlice1(nums []int) {
+	nums[3] = 999
+}
+
+func ChangeSlice2(nums *[]int) {
+	(*nums)[0] = 929
+}
+
+func TestDemo1(t *testing.T) {
+	nums := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	ChangeSlice1(nums)
+	ChangeSlice2(&nums)
+	t.Log(nums)
+}
+
 func TestSlice(t *testing.T) {
 	//切片共享存储结构
 	s := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
