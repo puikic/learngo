@@ -1,7 +1,8 @@
-package type__test
+package type_test
 
 import (
 	"testing"
+	"unicode/utf8"
 )
 
 type MyInt int64
@@ -21,5 +22,7 @@ func TestType2(t *testing.T) {
 	a := "cpq我"
 	var b string
 	t.Logf("%T ", a)
+	t.Logf("%v", b)
 	t.Log(b+a+b+a, len(a), len(b))
+	t.Log(utf8.RuneCountInString(a), utf8.RuneCountInString(b))
 }

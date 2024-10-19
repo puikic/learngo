@@ -21,8 +21,9 @@ func main() {
 		oid := ctx.Query("id")
 		ctx.String(http.StatusOK, "hello 这是查询参数"+oid)
 	})
-	r.GET("/items/*abc", func(ctx *gin.Context) {
-		ctx.String(http.StatusOK, "hello ,这是items")
+	r.GET("/items/*.abc", func(ctx *gin.Context) {
+		x := ctx.Param(".abc")
+		ctx.String(http.StatusOK, "hello ,这是items"+x)
 	})
 	r.Run(":8080")
 }
