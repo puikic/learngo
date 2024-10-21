@@ -25,4 +25,9 @@ func TestType2(t *testing.T) {
 	t.Logf("%v", b)
 	t.Log(b+a+b+a, len(a), len(b))
 	t.Log(utf8.RuneCountInString(a), utf8.RuneCountInString(b))
+	t.Log(len("陈"))
+	rune1 := []rune{}
+	rune1 = append(rune1, '陈')
+	rune1 = append(rune1, '哈')
+	t.Log(len(rune1))
 }

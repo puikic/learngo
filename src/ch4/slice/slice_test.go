@@ -98,3 +98,14 @@ func TestAppend(t *testing.T) {
 	t.Log(nums)
 	t.Log(temp)
 }
+
+func TestMake(t *testing.T) {
+	s := []int{}
+	ss := make([]int, 0, 100)
+	t.Log(len(s), cap(s))
+	t.Log(len(ss), cap(ss))
+	ssp := &ss
+	t.Logf("%T %v", s, s)
+	t.Logf("%T %v", ss, ss)
+	t.Logf("%T %v", ssp, ssp)
+}
