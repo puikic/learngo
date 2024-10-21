@@ -79,6 +79,12 @@ func TestDemo2(t *testing.T) {
 func TestDemo3(t *testing.T) {
 	nums := make([]int, 3, 20)
 	sliceAdd(nums)
+	// Q:为什么nums切片没有改变
+	// A:因为nums是个数据结构{1.指向底层数组的指针 2.len 3.cap}
+	// 	append函数执行完之后，返回一个新的切片，若未发生扩容：{1.指向相同底层数组的指针 2.len+1 3.cap}
+	// 	若发生扩容：	{1.指向新底层数组的指针 2.len+1 3.cap}
+	// 	总之返回的新的切片和以前的切片不一样，至少len不一样
+	//	故在自定义函数中，对切片执行执行append操作，应该传入切片指针*[]int
 	t.Log(nums)
 }
 func TestDemo4(t *testing.T) {
@@ -87,7 +93,7 @@ func TestDemo4(t *testing.T) {
 	t.Log(nums)
 }
 func TestDemo5(t *testing.T) {
-	nums := make([]int, 3, 20)
+	nums := make([]int, 1, 20)
 	change(nums)
 	t.Log(nums)
 }

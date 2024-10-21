@@ -53,3 +53,9 @@ func TestStringsFn2(t *testing.T) {
 		t.Log(10 + i)
 	}
 }
+
+func TestString1(t *testing.T) {
+	s := "hello"
+	w := s[0]
+	t.Logf("%T", w)
+}
