@@ -31,6 +31,12 @@ func BatchInsertUsers2(users []interface{}) error {
 	return err
 }
 
+// BatchInsertUsers3 使用NamedExec实现批量插入
+func BatchInsertUsers3(users []*user) error {
+	_, err := db.NamedExec("INSERT INTO user (name, age) VALUES (:name, :age)", users)
+	return err
+}
+
 func initDB() (err error) {
 	//CREATE DATABASE sql_demo;
 
@@ -115,6 +121,21 @@ func deleteRowDemo() {
 	}
 	fmt.Printf("delete success, affected rows:%d\n", n)
 }
+
+// QueryByIDs 根据给定ID查询
+func QueryByIDs(ids []int) (users []user, err error) {
+	// 动态填充id
+	query, args, err := sqlx.In("SELECT name, age FROM user WHERE id IN (?)", ids)
+	if err != nil {
+		return
+	}
+	// sqlx.In 返回带 `?` bindvar的查询语句, 我们使用Rebind()重新绑定。
+	// 重新生成对应数据库的查询语句（如PostgreSQL 用 `$1`, `$2` bindvar）
+	query = db.Rebind(query)
+	err = db.Select(&users, query, args...)
+	return
+}
+
 func main() {
 	if err := initDB(); err != nil {
 		fmt.Printf("init err:%v\n", err)
@@ -126,5 +147,20 @@ func main() {
 	//queryMultiRowDemo()
 	//insertUserDemo()
 	//deleteRowDemo()
-
+	//u1 := user{Name: "七米2", Age: 18}
+	//u2 := user{Name: "q1mi2", Age: 28}
+	//u3 := user{Name: "小王子2", Age: 38}
+	//users := []interface{}{u1, u2, u3}
+	//BatchInsertUsers2(users)
+	//users := []*user{&u1, &u2, &u3}
+	//BatchInsertUsers3(users)
+	ids := []int{1, 2, 3}
+	ds, err := QueryByIDs(ids)
+	if err != nil {
+		fmt.Printf("QueryByIDs err:%v\n", err)
+		return
+	}
+	for _, d := range ds {
+		fmt.Printf("id:%d name:%s age:%d\n", d.ID, d.Name, d.Age)
+	}
 }
