@@ -11,7 +11,13 @@ import (
 // string_rune 的 byte 数组可以存放任何数据
 func TestString(t *testing.T) {
 	var s string
-	s = "hello "
+	s = "hello我是你？"
+	for _, v := range s {
+		t.Logf("%T, %c\n", v, v) // rune
+	}
+	for i := 0; i < len(s); i++ {
+		t.Logf("%T, %c\n", s[i], s[i]) // byte
+	}
 	t.Log(len(s), s[3])
 	t.Logf("%T", s[3]) // byte
 	s = "\xE4\xB8\xA5"
