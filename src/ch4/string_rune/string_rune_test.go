@@ -13,6 +13,7 @@ func TestString(t *testing.T) {
 	var s string
 	s = "hello "
 	t.Log(len(s), s[3])
+	t.Logf("%T", s[3]) // byte
 	s = "\xE4\xB8\xA5"
 	t.Log(len(s), s, s[1]) // 16 * 11 + 8 = 184
 }
