@@ -12,7 +12,7 @@ import (
 func TestString(t *testing.T) {
 	var s string
 	s = "hello "
-	t.Log(len(s))
+	t.Log(len(s), s[3])
 	s = "\xE4\xB8\xA5"
 	t.Log(len(s), s, s[1]) // 16 * 11 + 8 = 184
 }
