@@ -2,8 +2,12 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
 	"net/http"
 )
+
+var logger *zap.Logger
+var sugarLogger *zap.SugaredLogger
 
 func main() {
 	r := gin.Default()
