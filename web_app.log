@@ -1,0 +1,4 @@
+{"level":"INFO","time":"2024-10-28T22:09:55.120+0800","caller":"logger/logger.go:69","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0","errors":"","cost":0.000037368}
+{"level":"INFO","time":"2024-10-28T22:09:55.222+0800","caller":"logger/logger.go:69","msg":"/favicon.ico","status":404,"method":"GET","path":"/favicon.ico","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0","errors":"","cost":0.000002305}
+{"level":"INFO","time":"2024-10-28T22:10:53.639+0800","caller":"web_app/main.go:68","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2024-10-28T22:10:53.639+0800","caller":"web_app/main.go:77","msg":"Server exiting"}

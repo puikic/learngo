@@ -53,7 +53,6 @@ func initDB() (err error) {
 		fmt.Printf("connect err:%v\n", err)
 		return
 	}
-
 	return
 }
 
