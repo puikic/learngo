@@ -66,3 +66,20 @@ func TestString1(t *testing.T) {
 	w := s[0]
 	t.Logf("%T", w)
 }
+
+func TestString2(t *testing.T) {
+	s := "hello"
+	m := make([]int, 200)
+	for _, v := range s {
+		t.Logf("%c\n", v)
+		t.Logf("%d\n", v)
+		t.Logf("%v\n", v)
+		m[v]++
+	}
+	for i := 0; i < len(s); i++ {
+		t.Logf("%c\n", s[i])
+		t.Logf("%d\n", s[i])
+		t.Logf("%v\n", s[i])
+		m[s[i]]++
+	}
+}
