@@ -21,10 +21,14 @@ func main() {
 	// 设置默认值
 	//viper.SetDefault("fileDir", "./src/viper")
 	// 读取配置文件
-	viper.SetConfigName("config") // 配置文件名（无拓展名）
-	viper.SetConfigType("yaml")   //若配置文件的名称中没有拓展名，则需要配置此项
-	//viper.SetConfigFile("./src/viper/config.yaml")
-	viper.AddConfigPath("./src/viper")
+	// 方式1：直接指定配置文件路径
+	viper.SetConfigFile("./src/viper/config.yaml") // 相对路径：相对可执行文件的相对路径，本项目即web_app
+	//viper.SetConfigType("/home/cpq/go/src/learngo/src/viper/config.yaml") // 绝对路径
+	// 方式2：指定配置文件名和配置文件的位置，viper自行查找可用的配置文件
+	//viper.SetConfigName("config") // 配置文件名（不需要带后缀）
+	//viper.AddConfigPath("./src/viper")
+
+	//viper.SetConfigType("yaml")   // 配合远程配置中心使用的
 	err := viper.ReadInConfig()
 	if err != nil {
 		panic(err)
