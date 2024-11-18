@@ -9,7 +9,6 @@ func TestChan1(t *testing.T) {
 	c1 := make(chan int, 1)
 	//c1 := make(chan int) -> 阻塞
 	c1 <- 1
-
 	fmt.Println(<-c1)
 }
 
