@@ -1,11 +1,17 @@
 package type_test
 
 import (
+	"fmt"
+	"strconv"
 	"testing"
 	"unicode/utf8"
 )
 
 type MyInt int64
+
+func (mi MyInt) string() string {
+	return strconv.Itoa(int(mi))
+}
 
 func TestType1(t *testing.T) {
 	var a int64 = 1
@@ -30,4 +36,21 @@ func TestType2(t *testing.T) {
 	rune1 = append(rune1, '陈')
 	rune1 = append(rune1, '哈')
 	t.Log(len(rune1))
+}
+
+func TestType3(t *testing.T) {
+	var i MyInt = 8
+	fmt.Println(i.string())
+	fmt.Printf("%T\n", i.string())
+}
+
+func TestType4(t *testing.T) {
+	var a interface{} = "abc"
+	switch a.(type) {
+	case string:
+		fmt.Println("string:", a)
+	}
+	m := a.(string) // 类型断言
+	fmt.Println(m)
+	fmt.Printf("%T\n", m)
 }
