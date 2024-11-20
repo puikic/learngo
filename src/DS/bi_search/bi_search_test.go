@@ -1,11 +1,11 @@
 package bi_search
 
 import (
+	"golang.org/x/exp/constraints"
 	"testing"
 )
 
-
-func BinarySearch[T int | int8 | int32 | int64 | float32 | float64 | string](arr []T, target T) int {
+func BinarySearch[T constraints.Ordered](arr []T, target T) int {
 	begin := 0
 	end := len(arr) - 1
 	for begin <= end {

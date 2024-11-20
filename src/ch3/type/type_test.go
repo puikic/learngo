@@ -8,18 +8,32 @@ import (
 )
 
 type MyInt int64
+type s1 []int
+type MyString []string
 
 func (mi MyInt) string() string {
 	return strconv.Itoa(int(mi))
 }
 
 func TestType1(t *testing.T) {
+	var test s1 = []int{1, 2, 3}
+	t.Log(test)
+	var test2 s1
+	var intSlice = []int{3, 2, 1}
+	test2 = intSlice
+	t.Log(test2)
+
+	var s = []string{"cpq", "123"}
+	var ms MyString
+	ms = s
+	t.Log(ms)
+
 	var a int64 = 1
 	var b int
 	b = int(a)
 	var c MyInt
-	//c = a
-	//cannot use a (variable of type int64) as MyInt value in assignment
+	// c = a
+	// cannot use a (variable of type int64) as MyInt value in assignment
 	c = MyInt(a)
 	t.Log(a, b, c)
 }
