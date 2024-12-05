@@ -83,3 +83,8 @@ func TestString2(t *testing.T) {
 		m[s[i]]++
 	}
 }
+
+func TestStrConv(t *testing.T) {
+	t.Log(strconv.Atoi("01230"))
+	t.Log(strconv.Atoi("0001230"))
+}
