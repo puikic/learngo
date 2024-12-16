@@ -115,3 +115,11 @@ func TestMake(t *testing.T) {
 	t.Logf("%T %v", ss, ss)
 	t.Logf("%T %v", ssp, ssp)
 }
+
+func Test2DArr(t *testing.T) {
+	a := make([][]int, 5)
+	a[1] = append(a[1], 0)
+	a[1] = append(a[1], 3)
+	t.Log(a[1])
+	t.Log(a)
+}
