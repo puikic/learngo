@@ -15,7 +15,9 @@ func (p *GoProgrammer) WriteHelloWorld() string {
 }
 func TestInterface(t *testing.T) {
 	var p Programmer
-	p = new(GoProgrammer)
+	//p = new(GoProgrammer)
+	//p = GoProgrammer{} //错误写法，指针接收器的方法只属于*T
+	p = &GoProgrammer{}
 	//断言写法
 	p.(*GoProgrammer).Age = 10
 	t.Logf("%T\n %d\n", p, p.(*GoProgrammer).Age)
