@@ -1,6 +1,9 @@
 package slice
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 // 把slice理解为一个结构体：1.一个指针，指向低层数组 2.len, cap int
 func ChangeSlice1(nums []int) {
@@ -122,4 +125,10 @@ func Test2DArr(t *testing.T) {
 	a[1] = append(a[1], 3)
 	t.Log(a[1])
 	t.Log(a)
+}
+
+func TestCap(t *testing.T) {
+	s := []int{1, 2}
+	s = append(s, 4, 5, 6)
+	fmt.Println(len(s), cap(s))
 }
