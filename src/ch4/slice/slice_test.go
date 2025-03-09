@@ -24,7 +24,9 @@ func TestDemo(t *testing.T) {
 func TestSlice(t *testing.T) {
 	//切片共享存储结构
 	s := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-	ss := []int(s)
+	ss := s
+	t.Logf("%p, %p", &s, &ss)
+	t.Logf("%p, %p", s, ss)
 	t.Log(ss)
 	t.Log(len(s), cap(s))
 	s1 := s[:5]
