@@ -23,3 +23,8 @@ func TestInterface(t *testing.T) {
 	t.Logf("%T\n %d\n", p, p.(*GoProgrammer).Age)
 	t.Log(p.WriteHelloWorld())
 }
+
+func TestInterface2(t *testing.T) {
+	var p GoProgrammer
+	t.Log(p.WriteHelloWorld())
+}

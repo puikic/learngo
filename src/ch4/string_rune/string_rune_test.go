@@ -88,3 +88,11 @@ func TestStrConv(t *testing.T) {
 	t.Log(strconv.Atoi("01230"))
 	t.Log(strconv.Atoi("0001230"))
 }
+
+func TestSslice(t *testing.T) {
+	s := "xyz1232ooadc"
+	//x := s[2:7]
+	x := ""
+	x = s[2:7]
+	t.Log(x)
+}
