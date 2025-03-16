@@ -96,3 +96,8 @@ func TestSslice(t *testing.T) {
 	x = s[2:7]
 	t.Log(x)
 }
+
+func TestSlen(t *testing.T) {
+	s := "abc123"
+	t.Log(len(s))
+}
