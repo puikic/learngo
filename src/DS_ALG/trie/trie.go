@@ -59,7 +59,7 @@ func (node *TrieNode) work(words []rune, index int) *TrieNode {
 	}
 	return nil
 }
-
+ 
 // 遍历node下面的所有term。注意有append操作时，要传切片指针
 func (node *TrieNode) traverseTerms(terms *[]string) {
 	if len(node.Term) > 0 {
