@@ -49,3 +49,14 @@ func TestMap3(t *testing.T) {
 		t.Log("key cpq is empty.")
 	}
 }
+
+func TestMakeMap(t *testing.T) {
+	m1 := make(map[string]int)
+	m2 := map[string]int{}
+	var m3 map[string]int
+	t.Logf("%p %p %p", m1, m2, m3)
+	t.Logf("%p %p %p", &m1, &m2, &m3)
+	var x int
+	//t.Logf("%p", x) //%p has arg x of wrong type int   说明int非引用类型,引用类型=指针类型=值为地址
+	t.Logf("%p", &x)
+}
