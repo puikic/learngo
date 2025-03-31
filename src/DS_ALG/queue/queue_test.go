@@ -1,6 +1,8 @@
 package queue
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestQueue1(t *testing.T) {
 	q := &Queue{}

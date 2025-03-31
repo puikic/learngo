@@ -1,6 +1,7 @@
 package slice
 
 import (
+	"bytes"
 	"fmt"
 	"testing"
 )
@@ -133,4 +134,27 @@ func TestCap(t *testing.T) {
 	s := []int{1, 2}
 	s = append(s, 4, 5, 6)
 	fmt.Println(len(s), cap(s))
+}
+
+func TestSlicedemo1(t *testing.T) {
+	a := []byte("AAAA/BBBBB")
+	idx := bytes.IndexByte(a, '/')
+	b := a[:idx]
+	c := a[idx+1:]
+	b = append(b, "CCC"...)
+	t.Log(string(a))
+	t.Log(string(b))
+	t.Log(string(c))
+}
+
+func TestSlicedemo2(t *testing.T) {
+	a := []byte{'a', 'b', 'c', 'a'}
+	b := [...]byte{'a', 'b', 'c', 'a'}
+	aa := a
+	bb := b
+	aaa := a[:]
+	bbb := b[:]
+	t.Logf("%T %T %T %T %T %T", a, b, aa, bb, aaa, bbb)
+	bbb[0] = 'b'
+	t.Log(b)
 }

@@ -24,3 +24,9 @@ func TestOp2(t *testing.T) {
 	t.Log(c &^ a)
 	t.Log(a &^ c) //2
 }
+
+func TestUint(t *testing.T) {
+	var a uint = 1
+	var b uint = 2
+	t.Log(a - b)
+}
