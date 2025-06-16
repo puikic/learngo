@@ -1,6 +1,8 @@
 package demo_test
 
-import "testing"
+import (
+	"testing"
+)
 
 var pre *TreeNode = nil
 var left bool = false

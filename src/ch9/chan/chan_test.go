@@ -22,3 +22,13 @@ func TestChan2(t *testing.T) {
 		fmt.Println(v)
 	}
 }
+
+func TestChan3(t *testing.T) {
+	c1 := make(chan int, 2)
+
+	c1 <- 1
+	c1 <- 3
+	<-c1
+	x := <-c1
+	t.Log(x)
+}

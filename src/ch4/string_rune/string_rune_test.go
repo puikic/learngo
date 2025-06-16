@@ -83,3 +83,33 @@ func TestString2(t *testing.T) {
 		m[s[i]]++
 	}
 }
+
+func TestStrConv(t *testing.T) {
+	t.Log(strconv.Atoi("01230"))
+	t.Log(strconv.Atoi("0001230"))
+}
+
+func TestSslice(t *testing.T) {
+	s := "xyz1232ooadc"
+	//x := s[2:7]
+	x := ""
+	x = s[2:7]
+	t.Log(x)
+}
+
+func TestSlen(t *testing.T) {
+	s := "abc123"
+	t.Log(len(s))
+}
+
+func TestTrim(t *testing.T) {
+	prefix1 := strings.TrimRight("wtf!?,!?,", ",")
+	prefix2 := strings.TrimRight("wtf!?,!?,", ",=")
+	prefix3 := strings.TrimRight("wtf!?,!?,", ",?")
+	prefix4 := strings.TrimRight("wtf!?,!?,", "!,?")
+	t.Log(prefix1)
+	t.Log(prefix2)
+	t.Log(prefix3)
+	t.Log(prefix4)
+
+}

@@ -1,6 +1,8 @@
 package arr
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestArr1(t *testing.T) {
 	s := []int{}
@@ -13,6 +15,7 @@ func TestArr1(t *testing.T) {
 func TestArr2(t *testing.T) {
 	a := [3]int{1, 2, 3}
 	t.Log(a[0], a[1], a[2])
+
 	//a[3] = 0
 	//index 3 out of bounds [0:3]
 }

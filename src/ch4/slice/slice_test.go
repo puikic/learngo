@@ -1,6 +1,10 @@
 package slice
 
-import "testing"
+import (
+	"bytes"
+	"fmt"
+	"testing"
+)
 
 // 把slice理解为一个结构体：1.一个指针，指向低层数组 2.len, cap int
 func ChangeSlice1(nums []int) {
@@ -21,7 +25,9 @@ func TestDemo(t *testing.T) {
 func TestSlice(t *testing.T) {
 	//切片共享存储结构
 	s := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-	ss := []int(s)
+	ss := s
+	t.Logf("%p, %p", &s, &ss)
+	t.Logf("%p, %p", s, ss)
 	t.Log(ss)
 	t.Log(len(s), cap(s))
 	s1 := s[:5]
@@ -114,4 +120,41 @@ func TestMake(t *testing.T) {
 	t.Logf("%T %v", s, s)
 	t.Logf("%T %v", ss, ss)
 	t.Logf("%T %v", ssp, ssp)
+}
+
+func Test2DArr(t *testing.T) {
+	a := make([][]int, 5)
+	a[1] = append(a[1], 0)
+	a[1] = append(a[1], 3)
+	t.Log(a[1])
+	t.Log(a)
+}
+
+func TestCap(t *testing.T) {
+	s := []int{1, 2}
+	s = append(s, 4, 5, 6)
+	fmt.Println(len(s), cap(s))
+}
+
+func TestSlicedemo1(t *testing.T) {
+	a := []byte("AAAA/BBBBB")
+	idx := bytes.IndexByte(a, '/')
+	b := a[:idx]
+	c := a[idx+1:]
+	b = append(b, "CCC"...)
+	t.Log(string(a))
+	t.Log(string(b))
+	t.Log(string(c))
+}
+
+func TestSlicedemo2(t *testing.T) {
+	a := []byte{'a', 'b', 'c', 'a'}
+	b := [...]byte{'a', 'b', 'c', 'a'}
+	aa := a
+	bb := b
+	aaa := a[:]
+	bbb := b[:]
+	t.Logf("%T %T %T %T %T %T", a, b, aa, bb, aaa, bbb)
+	bbb[0] = 'b'
+	t.Log(b)
 }

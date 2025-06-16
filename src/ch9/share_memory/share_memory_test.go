@@ -1,6 +1,7 @@
 package share_memory
 
 import (
+	"fmt"
 	"sync"
 	"testing"
 	"time"
@@ -49,4 +50,29 @@ func TestShareMem3(t *testing.T) {
 	}
 	wg.Wait()
 	t.Logf("counter: %d", counter)
+}
+
+func TestShareMem4(t *testing.T) {
+	var wg sync.WaitGroup
+	lock := new(sync.Mutex)
+	var a int32 = 0
+	var b int32 = 2
+
+	for i := 0; i < 5; i++ {
+		wg.Add(1)
+		go func(index int) {
+			lock.Lock()
+			defer lock.Unlock()
+			if a > b {
+				fmt.Println("done")
+				wg.Done()
+				return
+			}
+
+			a++
+			fmt.Printf("i: %d a: %d \n", index, a)
+			wg.Done()
+		}(i)
+	}
+	wg.Wait()
 }
