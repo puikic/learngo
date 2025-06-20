@@ -1,5 +1,6 @@
 {
   "editor.fontSize": 24,
   "editor.fontVariations": false,
-  "editor.fontLigatures": false
+  "editor.fontLigatures": false,
+  "editor.inlayHints.fontSize": 12
 }
